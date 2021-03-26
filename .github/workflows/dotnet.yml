@@ -18,8 +18,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1
       
     - name: Restore dependencies
-      run: dotnet restore
+      run: msbuild /t:restore
+      
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: msbuild
