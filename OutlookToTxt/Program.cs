@@ -87,7 +87,7 @@ namespace OutlookToTxt
 
                 foreach (string folder in folders)
                 {
-                    mapiFolders.Add(folder, outlookNamespace.GetDefaultFolder(OlDefaultFolders.olFolderInbox).Parent.Folders[folder]);
+                    mapiFolders.Add(folder, ((MAPIFolder)(outlookNamespace.GetDefaultFolder(OlDefaultFolders.olFolderInbox).Parent)).Folders[folder]);
                 }
 
                 foreach (var e in mapiFolders)
