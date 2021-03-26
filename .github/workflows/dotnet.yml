@@ -22,6 +22,10 @@ jobs:
       
     - name: Build
       run: msbuild /p:Configuration=Release
+      
+    - name: Package
+      run: Compress-Archive -Path 'OutlookToTxt\bin\Release\*.*' -DestinationPath 'OutlookToTxt.zip'
+      shell: pwsh
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
@@ -30,4 +34,4 @@ jobs:
         prerelease: true
         title: "Development Build"
         files: |
-          **/bin/Release/*.*
+          OutlookToTxt.zip
